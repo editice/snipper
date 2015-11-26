@@ -1,0 +1,40 @@
+#set($layout="layout/index.vm")
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="masthead clearfix">
+                <div class="inner">
+##                    <h3 class="masthead-brand"></h3>
+                    <nav>
+                        <ul class="nav masthead-nav">
+                            <li class="active"><a href="#">主页</a></li>
+                            <li><a href="#">分享</a></li>
+                            <li><a href="#">关于我们</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="inner cover">
+                <h1 class="cover-heading">editice的小站</h1>
+                <p class="lead">欢迎访问editice的小站，由于小站目前还处于开发期，暂时没有对外开放更多内容。对此造成的不便敬请谅解</p>
+                <p class="lead">
+                    <a href="#" class="btn btn-lg btn-default">点击访问</a>
+                </p>
+            </div>
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>联系我<a href="http://getbootstrap.com">editice</a>@gmail.com</a>.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

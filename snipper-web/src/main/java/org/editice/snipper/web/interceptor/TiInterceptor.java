@@ -57,7 +57,7 @@ public class TiInterceptor implements HandlerInterceptor {
      */
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
-        request.setCharacterEncoding("GBK");
+        request.setCharacterEncoding("UTF-8");
         genAttributes(request);
         return true;
     }
@@ -69,7 +69,7 @@ public class TiInterceptor implements HandlerInterceptor {
             for (String r : strs) {
                 String[] tmp = r.split(Delimiters.EQUAL);
                 if (tmp.length == 2) {
-                    request.setAttribute(tmp[0], URLDecoder.decode(tmp[1], "GBK"));
+                    request.setAttribute(tmp[0], URLDecoder.decode(tmp[1], "UTF-8"));
                 }
                 else {
                     request.setAttribute(tmp[0], "");
