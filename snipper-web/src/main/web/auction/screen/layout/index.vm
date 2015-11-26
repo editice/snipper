@@ -10,7 +10,7 @@
     <title>editice的小站</title>
 
     <link href="../statics/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="../../statics/img/blue.ico">
+    <link rel="icon" href="../statics/img/blue.ico">
     <script src="../statics/js/jquery-1.11.1.min.js"></script>
     <script src="../statics/js/bootstrap.min.js"></script>
     <script src="../statics/js/jquery-ui.min.js"></script>
