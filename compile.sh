@@ -1,8 +1,7 @@
 git pull origin master
-mvn clean
-mvn package
-cp web/target/web-1.0.0.war /opt/apache-tomcat-7.0.56/webapps/web.war
-rm -rf /opt/apache-tomcat-7.0.56/webapps/web
-cd /opt/apache-tomcat-7.0.56/bin
+mvn clean package -Dmaven.test.skip=true
+cp snipper-web/target/snipper.war /home/admin/apache-tomcat-7.0.65/webapps/snipper.war
+rm -rf /home/admin/apache-tomcat-7.0.65/webapps/snipper
+cd /home/admin/apache-tomcat-7.0.65/bin
 sh shutdown.sh
 sh startup.sh
