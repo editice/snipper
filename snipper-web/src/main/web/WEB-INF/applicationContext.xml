@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 自动扫描的包名 -->
+    <context:component-scan base-package="org.editice.snipper.web"/>
+    <!-- 默认的注解映射的支持 -->
+    <mvc:annotation-driven/>
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <bean class="org.editice.snipper.web.interceptor.TiInterceptor"/>
+    </mvc:interceptors>
+
+    <!-- 对静态资源文件的访问 -->
+    <mvc:default-servlet-handler/>
+
+    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <!--velocity模板路径配置-->
+        <property name="resourceLoaderPath" value="/auction/screen/"/>
+        <!--velocity配置参数-->
+        <property name="velocityProperties">
+            <props>
+                <prop key="directive.foreach.counter.name">loopCounter</prop>
+                <prop key="directive.foreach.counter.initial.value">0</prop>
+                <prop key="input.encoding">GBK</prop>
+                <prop key="output.encoding">GBK</prop>
+                <prop key="directive.foreach.counter.name">velocityCount</prop>
+                <prop key="directive.foreach.counter.initial.value">1</prop>
+                <prop key="velocimacro.library.autoreload">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <property name="exposeRequestAttributes" value="true"/>
+        <property name="contentType" value="text/html;charset=GBK"/>
+        <!--<property name="prefix" value="/auction/screen/"/>-->
+        <property name="suffix" value=".vm"/>
+        <property name="layoutUrl" value="layout/layout.vm"/>
+        <property name="dateToolAttribute" value="dateTool"/>
+    </bean>
+
+    <!-- 配置springMVC处理上传文件的信息 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="10485760000"/>
+        <property name="maxInMemorySize" value="40960"/>
+    </bean>
+
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean id="mappingJacksonHttpMessageConverter"
+                      class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>application/json;charset=UTF-8</value>
+                            <value>text/html;charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+
+
+    <!--<bean id="propertyConfig"-->
+          <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="location" value="classpath:sql/sqlMap.properties"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="springCxtHolder" class="com.hj.biz.util.RootSpringApplicationContextHolder"-->
+          <!--lazy-init="false"/>-->
+
+
+    <!--<bean id="datasource1"-->
+          <!--class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName" value="${db.driver}"/>-->
+        <!--<property name="url" value="${db.url}"/>-->
+        <!--<property name="username" value="${db.username}"/>-->
+        <!--<property name="password" value="${db.password}"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">-->
+        <!--<property name="configLocation" value="classpath:sql/sqlMapConfig.xml"/>-->
+        <!--<property name="dataSource" ref="datasource1"/>-->
+    <!--</bean>-->
+
+
+
+
+    <!--<bean id="ypDAO" class="com.hj.dal.dao.YPDAOImpl">-->
+        <!--<property name="sqlMapClient"  ref="sqlMapClient"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="qxDAO" class="com.hj.dal.dao.QXDAOImpl">-->
+        <!--<property name="sqlMapClient"  ref="sqlMapClient"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="ypService" class="com.hj.biz.service.impl.YiyaoServiceImpl"/>-->
+
+    <!--<bean class="com.hj.biz.util.BeanInitCostTimeBeanPostProcessor"/>-->
+
+
+
+
+
+
+</beans>

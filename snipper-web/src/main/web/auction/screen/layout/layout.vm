@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>天猫产品孵化器</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../statics/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../statics/css/siderbar.css" rel="stylesheet">
+    <link href="../../statics/css/jquery-ui.min.css" rel="stylesheet">
+    <link href="../../statics/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+    <link rel="icon" href="../../statics/img/blue.ico">
+    <script src="../../statics/js/jquery-1.11.1.min.js"></script>
+    <script src="../../statics/js/bootstrap.min.js"></script>
+    <script src="../../statics/js/jquery-ui.min.js"></script>
+    <script src="../../statics/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../statics/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+</head>
+<body>
+<div class="content">
+
+    #parse("layout/header.vm")
+    <div class="container-fluid">
+        <div class="row">
+            #parse("layout/leftmenu.vm")
+            $screen_content
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/tmallincubator/version/showAll.htm">天猫产品孵化器</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li #if($!{_module}=="fqg") class="active" #end><a href="#">分期购</a></li>
+                <li class="dropdown #if($!{_module}=="version") active #end"">
+                    <a href="#" class="dropdown-toggle"  data-toggle="dropdown">版本管理<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/tmallincubator/version/showAll.htm"><span class="glyphicon glyphicon-cog"></span>无线组件版本管理</a></li>
+                        <li><a href="/tmallincubator/version/showMock.htm"><span class="glyphicon glyphicon-th-large"></span>版本管理模拟器</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+
+            </form>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">工具<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">debug请求查看</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+
+            </form>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
