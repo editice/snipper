@@ -2,35 +2,56 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>editice的小站</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>天猫产品孵化器</title>
+    <meta name="description" content="editice的小站，用于承载个人的博客，分享等内容">
+    <meta name="author" content="editice@gmail.com">
 
     <!-- Bootstrap core CSS -->
-    <link href="../../statics/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../statics/css/siderbar.css" rel="stylesheet">
-    <link href="../../statics/css/jquery-ui.min.css" rel="stylesheet">
-    <link href="../../statics/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link href="../statics/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../statics/css/jquery-ui.min.css" rel="stylesheet">
 
-    <link rel="icon" href="../../statics/img/blue.ico">
-    <script src="../../statics/js/jquery-1.11.1.min.js"></script>
-    <script src="../../statics/js/bootstrap.min.js"></script>
-    <script src="../../statics/js/jquery-ui.min.js"></script>
-    <script src="../../statics/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="../../statics/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+##    ghost css
+    <link href="../statics/css/magnific-popup.min.css" rel="stylesheet">
+    <link href="../statics/css/screen.css" rel="stylesheet">
+    <link href="../statics/css/monokai_sublime.min.css" rel="stylesheet">
+    <link href="../statics/css/font-awesome.min.css" rel="stylesheet">
+
+
+##    bootstrap core js
+    <script src="../statics/js/jquery-1.11.1.min.js"></script>
+    <script src="../statics/js/bootstrap.min.js"></script>
+    <script src="../statics/js/jquery-ui.min.js"></script>
+
+##    icon
+    <link rel="icon" href="../statics/img/blue.ico">
 </head>
-<body>
-<div class="content">
-
+<body class="home-template">
     #parse("layout/header.vm")
-    <div class="container-fluid">
+
+
+<section class="content-wrap">
+    <div class="container">
         <div class="row">
-            #parse("layout/leftmenu.vm")
             $screen_content
+
+        ##            页面右侧边栏
+            #parse("layout/side.vm")
         </div>
     </div>
+</section>
 
+##copyright
+<div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <span>Copyright &copy; <a href="http://www.editice.com/">editice的小站</a></span> |
+                <span><a href="http://www.miibeian.gov.cn/" target="_blank">浙ICP备15042161号-1</a></span> |
+                <span>浙ICP备15042161</span>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
