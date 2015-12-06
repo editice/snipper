@@ -4,25 +4,27 @@
 
     <!-- start tag cloud widget -->
     <div class="widget">
-        <h4 class="title">个人介绍</h4>
+        <h4 class="title">联系方式</h4>
 
         <div class="content community">
             <p>QQ：813853647</p>
+            <p>邮箱：editice@gmail.com</p>
+            <p>github：https://github.com/editice</p>
 
-            <p><a href="http://wenda.ghostchina.com/" title="Ghost中文网问答社区" target="_blank"
-                  onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '问答社区'])"><span class="glyphicon glyphicon-cog"></span>
-                问答社区</a></p>
-
-            <p><a href="http://weibo.com/ghostchinacom" title="Ghost中文网官方微博" target="_blank"
-                  onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '官方微博'])"><span class="glyphicon glyphicon-th-large"></span>
-                官方微博</a></p>
+            <p><a href="http://weibo.com/2329503454/profile?topnav=1&wvr=6"><span
+                    class="glyphicon glyphicon-th-large"></span>
+                个人微博</a></p>
         </div>
     </div>
     <!-- end tag cloud widget -->
 
     <!-- start widget -->
     <div class="widget">
-        <h4 class="title">下载 Ghost</h4>
+        <h4 class="title">个人介绍</h4>
+
+        <div class="content community">
+            <p>2014年毕业于南京大学。毕业后目前就职于阿里巴巴，负责天猫交易链路核心开发。曾负责/参与的项目主要包括预售、prime、返多倍积分、电子凭证解耦等。</p>
+        </div>
 
         <div class="content download">
             <a href="/download/" class="btn btn-default btn-block"

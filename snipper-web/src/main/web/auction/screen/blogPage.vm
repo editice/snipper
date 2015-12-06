@@ -18,7 +18,7 @@
 
         <footer class="post-footer clearfix">
             <div class="pull-left tag-list">
-                <i class="fa fa-folder-open-o"></i>
+                <span class="glyphicon glyphicon-folder-open"></span>
                 <a href="/tag/about-ghost/">Ghost</a>, <a href="/tag/release/">新版本发布</a>, <a href="/tag/ghost-0-7-ban-ben/">Ghost 0.7 版本</a>
             </div>
             <div class="pull-right share">
@@ -29,9 +29,9 @@
 
     <nav class="pagination" role="navigation">
 
-        <a class="older-posts" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+        <a class="older-posts" href="/page/2/"><span class="page-number">&laquo;</span></a>
         <span class="page-number">第 1 页 &frasl; 共 8 页</span>
-        <a class="older-posts" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+        <a class="older-posts" href="/page/2/"><span class="page-number">&raquo;</span></a>
     </nav>
 
 
