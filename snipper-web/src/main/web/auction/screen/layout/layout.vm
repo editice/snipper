@@ -23,6 +23,8 @@
     <script src="../statics/js/bootstrap.min.js"></script>
     <script src="../statics/js/jquery-ui.min.js"></script>
 
+    <script src="../statics/js/marked.min.js"></script>
+
 ##    icon
     <link rel="icon" href="../statics/img/blue.ico">
 </head>
@@ -53,6 +55,8 @@
         </div>
     </div>
 </div>
+
+<a href="#" id="back-to-top" style="display: block;"><span class="glyphicon glyphicon-chevron-up"></span> </a>
 
 </body>
 </html>

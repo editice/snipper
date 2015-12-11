@@ -1,5 +1,14 @@
 <main class="col-md-8 main-content">
 
+    <div class="cover tag-cover">
+        <h3 class="tag-name">
+            标签：$!{res.get("tag")}
+        </h3>
+        <div class="post-count">
+            共 $!{res.get("cnt")} 篇文章
+        </div>
+    </div>
+
     #set($blogs = ${res.get("blogs")})
     #set($pageBean=${res.get("pageBean")})
     #set($pre = ${pageBean.pageNum} - 1)

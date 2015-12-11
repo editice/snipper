@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+
+    <typeAlias alias="blogDO" type="org.editice.snipper.client.domain.BlogDO"/>
+    <typeAlias alias="ParamMap" type="org.editice.snipper.dal.IbatisParamMap"/>
+
+    <resultMap id="blog" class="blogDO">
+        <result property="id" column="id" jdbcType="INT"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="create_time" column="create_time" jdbcType="DATETIME"/>
+        <result property="author" column="author" jdbcType="VARCHAR"/>
+        <result property="note" column="note" jdbcType="VARCHAR"/>
+        <result property="keywords" column="keywords" jdbcType="VARCHAR"/>
+        <result property="path" column="path" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="blogAbstract" class="blogDO">
+        <result property="id" column="id" jdbcType="INT"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="create_time" column="create_time" jdbcType="DATETIME"/>
+        <result property="author" column="author" jdbcType="VARCHAR"/>
+        <result property="keywords" column="keywords" jdbcType="VARCHAR"/>
+        <result property="note" column="note" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="blog.searchById" parameterClass="ParamMap" resultMap="blog">
+         <![CDATA[
+
+
+         select * from snipper_blog where id = #id#
+
+
+        ]]>
+    </select>
+
+    <select id="blog.searchByKeyword" parameterClass="ParamMap" resultMap="blogAbstract">
+        <![CDATA[
+         select id,title,create_time,author,note,keywords from snipper_blog where keywords like concat(#keyword#,'%') ORDER BY create_time desc
+        ]]>
+        <isPropertyAvailable property="pageIndex">
+            <isPropertyAvailable property="pageSize">
+                <![CDATA[
+		limit
+			#pageIndex#, #pageSize#
+		  ]]>
+            </isPropertyAvailable>
+        </isPropertyAvailable>
+    </select>
+
+    <select id="blog.search" parameterClass="ParamMap" resultMap="blogAbstract">
+        <![CDATA[
+         select id,title,create_time,author,note,keywords from snipper_blog  ORDER BY create_time desc
+        ]]>
+        <isPropertyAvailable property="pageIndex">
+            <isPropertyAvailable property="pageSize">
+                <![CDATA[
+		limit
+			#pageIndex#, #pageSize#
+		  ]]>
+            </isPropertyAvailable>
+        </isPropertyAvailable>
+    </select>
+
+    <select id="blog.countTag" parameterClass="ParamMap" resultClass="java.lang.Integer">
+        <![CDATA[
+            select count(1) from snipper_blog
+          ]]>
+        <dynamic>
+            <isNotNull property="keyword">
+                where keywords like concat(#keyword#,'%')
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <insert id="blog.insert" parameterClass="blogDO">
+        <![CDATA[
+
+    		INSERT INTO snipper_blog (title,create_time,author,note,keywords,path,content)
+    		VALUES (#title#,#create_time#,#author#,#note#,#keywords#,#path#,#content#)
+
+        ]]>
+    </insert>
+
+
+</sqlMap>

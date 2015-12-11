@@ -1,10 +1,12 @@
 <!-- start header -->
-<header class="main-header"  style="background-image: url(../statics/img/header.jpg)"">
+<header class="main-header" style="background-image: url(../statics/img/header.jpg)"">
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
             <!-- start logo -->
-            <a class="branding" href="http://www.editice.com" title="editice的小站"><img src="http://static.ghostchina.com/image/b/46/4f5566c1f7bc28b3f7ac1fada8abe.png" alt="editice的小站"></a>
+            <a class="branding" href="http://www.editice.com" title="editice的小站"><img
+                    src="http://static.ghostchina.com/image/b/46/4f5566c1f7bc28b3f7ac1fada8abe.png"
+                    alt="editice的小站"></a>
             <!-- end logo -->
             <h2 class="text-hide">感谢访问editice的小站</h2>
             <img src="../statics/img/header.jpg" alt="博客系统" class="hide">
@@ -27,11 +29,11 @@
                 </div>
                 <div class="collapse navbar-collapse" id="main-menu">
                     <ul class="menu">
-                        <li class="nav-current" role="presentation"><a href="/snipper/blogs/blogPage.htm">首页</a></li>
-                        <li  role="presentation"><a href="/snipper/blogs/blogPage.htm">博客</a></li>
-                        <li  role="presentation"><a href="#">读书笔记</a></li>
-                        <li  role="presentation"><a href="#">工具</a></li>
-                        <li  role="presentation"><a href="/snipper/about/page.htm">关于</a></li>
+                        <li #if($_module == "home") class="nav-current" #end role="presentation"><a href="/snipper/blogs/blogPage.htm">首页</a></li>
+                        <li  #if($_module == "blog") class="nav-current" #end role="presentation"><a href="/snipper/blogs/blogPage.htm">博客</a></li>
+                        <li role="presentation"><a href="#">读书笔记</a></li>
+                        <li role="presentation"><a href="#">工具</a></li>
+                        <li  #if($_module == "about") class="nav-current" #end role="presentation"><a href="/snipper/about/page.htm">关于</a></li>
                     </ul>
                 </div>
             </div>

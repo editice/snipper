@@ -20,6 +20,12 @@
             <version>${snipper-client.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.editice.snipper</groupId>
+            <artifactId>snipper-dao</artifactId>
+            <version>${snipper-client.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework</groupId>

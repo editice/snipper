@@ -11,5 +11,13 @@
 
     <artifactId>snipper-biz</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.editice.snipper</groupId>
+            <artifactId>snipper-client</artifactId>
+            <version>${snipper-client.version}</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

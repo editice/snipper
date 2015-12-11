@@ -20,21 +20,21 @@ import java.util.Map;
  * @author tinglang (editice@gmail.com)
  * @since 2015/10/25  22:13
  */
-public class TiInterceptor implements HandlerInterceptor {
+public class SnipperInterceptor implements HandlerInterceptor {
 
-    private static final Logger log = LoggerFactory.getLogger(TiInterceptor.class);
+    private static final Logger log = LoggerFactory.getLogger(SnipperInterceptor.class);
 
     static List<String> modules = Lists.newArrayList();
 
-    private static final String VERSION_MODULE = "version";
+    private static final String BLOG = "blog";
 
-    private static final String ALFRED_MODULE = "alfred";
+    private static final String ABOUT = "about";
     static {
-        modules.add(VERSION_MODULE);
-        modules.add(ALFRED_MODULE);
+        modules.add(BLOG);
+        modules.add(ABOUT);
     }
 
-    public TiInterceptor() {
+    public SnipperInterceptor() {
     }
 
     private String mappingURL;//利用正则映射到需要拦截的路径
@@ -57,12 +57,23 @@ public class TiInterceptor implements HandlerInterceptor {
      */
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
+        String uri = request.getRequestURI();
+        if(uri==null){
+            return true;
+        }
+        if(uri.contains("statics")){
+            return true;
+        }
         request.setCharacterEncoding("UTF-8");
         genAttributes(request);
         return true;
     }
 
     private void genAttributes(HttpServletRequest request) throws Exception{
+        for(Object s: request.getParameterMap().keySet()){
+            request.setAttribute(s.toString(),request.getParameter(s.toString()));
+        }
+
         String queryString=request.getQueryString();
         if (!StringUtils.isBlank(queryString)) {
             String[] strs = queryString.split(Delimiters.AND);
@@ -75,10 +86,6 @@ public class TiInterceptor implements HandlerInterceptor {
                     request.setAttribute(tmp[0], "");
                 }
             }
-        }
-
-        for(Object s: request.getParameterMap().keySet()){
-            request.setAttribute(s.toString(),request.getParameter(s.toString()));
         }
     }
 

@@ -1,0 +1,62 @@
+<main class="col-md-8 main-content">
+
+    #set($blog = ${res.get("blog")})
+    <input type="hidden" id="blog" value="$!{blog.content}">
+    <input type="hidden" id="blog_id" value="$!{blog.id}">
+
+    <article id="${blog.id}" class="post tag-about-ghost tag-release tag-ghost-0-7-ban-ben">
+        #if($!blog)
+            <header class="post-head">
+                <h1 class="post-title">$!{blog.title}</h1>
+                <section class="post-meta">
+                    <span class="author">作者：<a href="/author/wangsai/">$!{blog.author}</a></span> &bull;
+                    <time class="post-date">$!{dateTool.format("MEDIUM", $!{blog.create_time})}</time>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <div id="content1"></div>
+            </section>
+
+            #set($keywords = $res.get("keywords"))
+            <footer class="post-footer clearfix">
+                <div class="pull-left tag-list">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                    #foreach($keyword in $keywords)
+                        <a href="/snipper/blog/blogTag?blogTag=$keyword">$keyword</a>,
+                    #end
+                </div>
+
+            </footer>
+        #else
+            <section class="post-content">
+                <header class="post-head">
+                    <h1 class="post-title">抱歉，博客内容无法找到！</h1>
+                </header>
+            </section>
+        #end
+
+    </article>
+
+    <div class="about-author clearfix">
+        <a href="#"><img src="http://static.ghostchina.com/image/5/ea/da657733ee8c9add9cf3fd70183a6.png" alt="editice"
+                         class="avatar pull-left"></a>
+
+        <div class="details">
+            <div class="author">
+                关于作者 <a href="#">editice</a>
+            </div>
+            <div class="meta-info">
+                <span class="loaction"><span class="glyphicon glyphicon-map-marker"></span> 杭州</span>
+                <span class="website"><span class="glyphicon glyphicon-globe"></span><a href="http://www.editice.com"
+                                                                                        targer="_blank">个人网站/博客</a></span>
+            </div>
+        </div>
+    </div>
+
+</main>
+<script>
+    var blog = document.getElementById('blog').value;
+    document.getElementById('content1').innerHTML =
+            marked(blog);
+</script>

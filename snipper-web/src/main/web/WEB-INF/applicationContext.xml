@@ -14,7 +14,7 @@
     <mvc:annotation-driven/>
     <!-- 拦截器 -->
     <mvc:interceptors>
-        <bean class="org.editice.snipper.web.interceptor.TiInterceptor"/>
+        <bean class="org.editice.snipper.web.interceptor.SnipperInterceptor"/>
     </mvc:interceptors>
 
     <!-- 对静态资源文件的访问 -->
@@ -73,34 +73,31 @@
 
 
 
-    <!--<bean id="propertyConfig"-->
-          <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
-        <!--<property name="location" value="classpath:sql/sqlMap.properties"/>-->
-    <!--</bean>-->
+    <bean id="propertyConfig"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:sql/sqlMap.properties"/>
+    </bean>
 
     <!--<bean id="springCxtHolder" class="com.hj.biz.util.RootSpringApplicationContextHolder"-->
           <!--lazy-init="false"/>-->
 
 
-    <!--<bean id="datasource1"-->
-          <!--class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-        <!--<property name="driverClassName" value="${db.driver}"/>-->
-        <!--<property name="url" value="${db.url}"/>-->
-        <!--<property name="username" value="${db.username}"/>-->
-        <!--<property name="password" value="${db.password}"/>-->
-    <!--</bean>-->
+    <bean id="datasource1"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${db.driver}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
 
-    <!--<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">-->
-        <!--<property name="configLocation" value="classpath:sql/sqlMapConfig.xml"/>-->
-        <!--<property name="dataSource" ref="datasource1"/>-->
-    <!--</bean>-->
+    <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+        <property name="configLocation" value="classpath:sql/sqlMapConfig.xml"/>
+        <property name="dataSource" ref="datasource1"/>
+    </bean>
 
-
-
-
-    <!--<bean id="ypDAO" class="com.hj.dal.dao.YPDAOImpl">-->
-        <!--<property name="sqlMapClient"  ref="sqlMapClient"/>-->
-    <!--</bean>-->
+    <bean id="blogDAO" class="org.editice.snipper.dal.dao.impl.BlogDAOImpl">
+        <property name="sqlMapClient"  ref="sqlMapClient"/>
+    </bean>
 
     <!--<bean id="qxDAO" class="com.hj.dal.dao.QXDAOImpl">-->
         <!--<property name="sqlMapClient"  ref="sqlMapClient"/>-->

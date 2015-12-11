@@ -8,12 +8,13 @@
 
         <div class="content community">
             <p>QQ：813853647</p>
-            <p>邮箱：editice@gmail.com</p>
-            <p>github：https://github.com/editice</p>
 
-            <p><a href="http://weibo.com/2329503454/profile?topnav=1&wvr=6"><span
-                    class="glyphicon glyphicon-th-large"></span>
-                个人微博</a></p>
+            <p>邮箱：editice@gmail.com</p>
+
+            <p><a href="https://github.com/editice/"><span class="glyphicon glyphicon-tree-deciduous"></span>&nbsp;github</a> </p>
+            <p><a href="http://weibo.com/2329503454/profile?topnav=1&wvr=6"><span class="glyphicon glyphicon-th-large"></span>&nbsp;微博</a></p>
+            <p><a href="http://www.cnblogs.com/editice/"><span class="glyphicon glyphicon-leaf"></span>&nbsp;博客园</a> </p>
+
         </div>
     </div>
     <!-- end tag cloud widget -->
@@ -23,12 +24,11 @@
         <h4 class="title">个人介绍</h4>
 
         <div class="content community">
-            <p>2014年毕业于南京大学。毕业后目前就职于阿里巴巴，负责天猫交易链路核心开发。曾负责/参与的项目主要包括预售、prime、返多倍积分、电子凭证解耦等。</p>
+            <p>2014年毕业于南京大学，喜欢尝试一些新鲜事物，对于系统设计与产品规划方向有强烈的兴趣。喜欢奶酪、水果，最爱说的话就是“一定要有自己的想法”！</p>
         </div>
 
         <div class="content download">
-            <a href="/download/" class="btn btn-default btn-block"
-               onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '下载Ghost'])">Ghost 中文版（0.6.0）</a>
+            <a href="/snipper/blogs/about.htm" class="btn btn-default btn-block">关于editice的小站</a>
         </div>
     </div>
     <!-- end widget -->
@@ -38,25 +38,11 @@
         <h4 class="title">标签云</h4>
 
         <div class="content tag-cloud">
-            <a href="/tag/about-ghost/">Ghost</a>
-            <a href="/tag/release/">新版本发布</a>
-            <a href="/tag/javascript/">JavaScript</a>
-            <a href="/tag/promise/">Promise</a>
-            <a href="/tag/zhuti/">主题</a>
-            <a href="/tag/mysql/">MySQL</a>
-            <a href="/tag/nodejs/">Node.js</a>
-            <a href="/tag/ghost-in-depth/">深度玩转 Ghost</a>
-            <a href="/tag/ubuntu/">Ubuntu</a>
-            <a href="/tag/aliyun-ecs/">阿里云服务器</a>
-            <a href="/tag/nginx/">Nginx</a>
-            <a href="/tag/bae/">BAE</a>
-            <a href="/tag/theme/">Theme</a>
-            <a href="/tag/ghost-0-7-ban-ben/">Ghost 0.7 版本</a>
-            <a href="/tag/zhu-shou-han-shu/">助手函数</a>
-            <a href="/tag/customize-page/">自定义页面</a>
-            <a href="/tag/static-page/">静态页面</a>
-            <a href="/tag/upload/">上传</a>
-            <a href="/tag-cloud/">...</a>
+            <a href="/snipper/blogs/blogTag?blogTag=JAVA">JAVA</a>
+            <a href="/snipper/blogs/blogTag?blogTag=网站">网站</a>
+            <a href="/snipper/blogs/blogTag?blogTag=建模">建模</a>
+            <a href="/snipper/blogs/blogTag?blogTag=多线程">多线程</a>
+            <a href="/snipper/blogs/blogTag?blogTag=阿里云服务器">阿里云服务器</a>
         </div>
     </div>
 </aside>
