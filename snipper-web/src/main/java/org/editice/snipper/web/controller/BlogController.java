@@ -80,7 +80,7 @@ public class BlogController {
             return new ModelAndView("blogTag", "res", res);
         }
 
-        List<BlogDO> blogDOs = blogDAO.queryBlogsByKeyword(tag,start, PAGE_SIZE);
+        List<BlogDO> blogDOs = blogDAO.queryBlogsByKeyword(tag, start, PAGE_SIZE);
         res.put("blogs", blogDOs);
         return new ModelAndView("blogTag", "res", res);
     }
@@ -103,6 +103,7 @@ public class BlogController {
         return new ModelAndView("blogDetail", "res", res);
     }
 
+    //新增博客
     @RequestMapping(value = "blogInsert")
     @ResponseBody
     public ModelAndView blogInsert(HttpServletRequest request, HttpServletResponse response) {
@@ -125,6 +126,55 @@ public class BlogController {
 
         Map<String, String> res = Maps.newHashMap();
         res.put("result", result);
+        res.put("title",title);
+        res.put("content",content);
+        res.put("keywords",keywords);
         return new ModelAndView("blogInsert", "res", res);
     }
+
+    //更新博客
+    @RequestMapping(value = "blogUpdate")
+    @ResponseBody
+    public ModelAndView blogUpdate(HttpServletRequest request, HttpServletResponse response) {
+        String title = (String) request.getAttribute("title");
+        String content = (String) request.getAttribute("content");
+        String keywords = (String) request.getAttribute("keywords");
+        int blogId= Convert.asInt(request.getAttribute("blogId"));
+
+        Map<String, String> res = Maps.newHashMap();
+        BlogDO blogDO = blogDAO.queryBlogsById(blogId);
+        if(blogDO==null){
+            res.put("result", "FAIL");
+            return new ModelAndView("blogUpdate", "res", res);
+        }
+
+        if(title ==null || content==null || keywords==null){
+            res.put("result","query");
+            res.put("title",blogDO.getTitle());
+            res.put("content",blogDO.getContent());
+            res.put("keywords",blogDO.getKeywords());
+            res.put("blogId",blogDO.getId()+"");
+            return new ModelAndView("blogUpdate", "res", res);
+
+        }
+
+        res.put("title",title);
+        res.put("content",content);
+        res.put("keywords",keywords);
+        if (title.equals(blogDO.getTitle())
+                && content.equals(blogDO.getContent())
+                && keywords.contains(blogDO.getKeywords())) {
+            res.put("result","SUCCESS");
+            return new ModelAndView("blogUpdate", "res", res);
+        }
+
+        blogDO.setTitle(title);
+        blogDO.setContent(content);
+        blogDO.setKeywords(keywords);
+        boolean update = blogDAO.updateBlog(blogId, blogDO);
+        res.put("result", (update ?"SUCCESS":"FAIL"));
+        return new ModelAndView("blogUpdate", "res", res);
+    }
+
+
 }

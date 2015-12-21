@@ -92,6 +92,10 @@ public class BlogDAOImpl extends SqlMapClientDaoSupport implements BlogDAO {
 
     @Override
     public boolean updateBlog(int id, BlogDO blog) {
-        return false;
+        if(id!=blog.getId()){
+            return false;
+        }
+        int update = getSqlMapClientTemplate().update("blog.update", blog);
+        return update==1;
     }
 }

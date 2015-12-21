@@ -3,6 +3,7 @@ package org.editice.snipper.web.interceptor;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang.StringUtils;
 import org.editice.snipper.client.constants.Delimiters;
+import org.editice.snipper.web.util.TagUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -100,6 +101,7 @@ public class SnipperInterceptor implements HandlerInterceptor {
         Map<String,Object> model = modelAndView.getModel();
         //用于提供给前端用的模块唯一标识
         model.put("_module",getModuleName(request.getRequestURI()));
+        model.put("_tags", TagUtil.getBlogTags());
     }
 
     private String getModuleName(String uri){

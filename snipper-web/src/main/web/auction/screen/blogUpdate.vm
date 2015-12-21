@@ -5,7 +5,8 @@
     </div>
 
     <article id="0" class="post tag-about-ghost tag-release tag-ghost-0-7-ban-ben">
-        <form class="form-horizontal" method="post" action="/snipper/blogs/blogInsert">
+        <form class="form-horizontal" method="post" action="/snipper/blogs/blogUpdate">
+            <input type="hidden" name="blogId" value="$!{res.get("blogId")}"/>
 
             <div class="form-group">
                 <input type="text" name="title" class="form-control" placeholder="title"
@@ -18,7 +19,7 @@
             </div>
 
             <div class="form-group">
-                <textarea name="content" class="form-control" style="height: 500px;" value="$!{res.get("content")}"></textarea>
+                <textarea name="content" class="form-control" style="height: 500px;">$!{res.get("content")}</textarea>
             </div>
 
             <div class=" form-group">

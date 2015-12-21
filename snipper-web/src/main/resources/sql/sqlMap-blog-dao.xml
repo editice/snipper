@@ -83,5 +83,15 @@
         ]]>
     </insert>
 
+    <update id="blog.update" parameterClass="blogDO">
+        <![CDATA[
+		update snipper_blog set
+			title = #title#,
+			keywords = #keywords#,
+			content=#content#
+		where
+			id = #id#
+		  ]]>
+    </update>
 
 </sqlMap>

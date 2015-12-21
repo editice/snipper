@@ -38,11 +38,9 @@
         <h4 class="title">标签云</h4>
 
         <div class="content tag-cloud">
-            <a href="/snipper/blogs/blogTag?blogTag=JAVA">JAVA</a>
-            <a href="/snipper/blogs/blogTag?blogTag=网站">网站</a>
-            <a href="/snipper/blogs/blogTag?blogTag=建模">建模</a>
-            <a href="/snipper/blogs/blogTag?blogTag=多线程">多线程</a>
-            <a href="/snipper/blogs/blogTag?blogTag=阿里云服务器">阿里云服务器</a>
+            #foreach($tag in $_tags)
+                <a href="/snipper/blogs/blogTag?blogTag=$!{tag}">$!{tag}</a>
+            #end
         </div>
     </div>
 </aside>
