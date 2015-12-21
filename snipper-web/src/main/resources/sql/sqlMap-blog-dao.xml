@@ -37,7 +37,7 @@
 
     <select id="blog.searchByKeyword" parameterClass="ParamMap" resultMap="blogAbstract">
         <![CDATA[
-         select id,title,create_time,author,note,keywords from snipper_blog where keywords like concat(#keyword#,'%') ORDER BY create_time desc
+         select id,title,create_time,author,note,keywords from snipper_blog where keywords like concat('%',#keyword#,'%') ORDER BY create_time desc
         ]]>
         <isPropertyAvailable property="pageIndex">
             <isPropertyAvailable property="pageSize">
@@ -69,7 +69,7 @@
           ]]>
         <dynamic>
             <isNotNull property="keyword">
-                where keywords like concat(#keyword#,'%')
+                where keywords like concat('%',#keyword#,'%')
             </isNotNull>
         </dynamic>
     </select>

@@ -23,7 +23,7 @@
                 <div class="pull-left tag-list">
                     <span class="glyphicon glyphicon-folder-open"></span>
                     #foreach($keyword in $keywords)
-                        <a href="/snipper/blog/blogTag?blogTag=$keyword">$keyword</a>,
+                        <a href="/snipper/blogs/blogTag?blogTag=$keyword">$keyword</a>,
                     #end
                 </div>
 
