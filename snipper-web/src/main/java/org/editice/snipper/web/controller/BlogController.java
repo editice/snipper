@@ -36,6 +36,8 @@ public class BlogController {
 
     private static final int PAGE_SIZE = 10;
 
+    private static final int BLOG_ABSTRACT_PRE_WORDS = 100;
+
     //主页
     @RequestMapping(value = "blogPage")
     @ResponseBody
@@ -120,7 +122,7 @@ public class BlogController {
         blogDO.setAuthor(GlobalIdentifier.author);
         blogDO.setCreate_time(new Date());
         blogDO.setKeywords(keywords);
-        blogDO.setNote(content.substring(0, 40));
+        blogDO.setNote(content.substring(0, BLOG_ABSTRACT_PRE_WORDS));
         int r = blogDAO.insertBlog(blogDO);
         String result = (r == 0) ? "SUCCESS" : "FAIL";
 
